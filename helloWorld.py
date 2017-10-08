@@ -1,5 +1,7 @@
 # set GOOGLE_APPLICATION_CREDENTIALS="D:/Coding/Whatever-21592b267981.json"
 
+import logging
+from logging.handlers import RotatingFileHandler
 from google.cloud import language
 from google.cloud.language import enums
 from google.cloud.language import types
@@ -30,5 +32,9 @@ def helloWorld():
     return '5'
 
 
-# if __name__ == "__main__":
-#	app.run()
+if __name__ == "__main__":
+	logHandler = RotatingFileHandler('info.log', maxBytes=1000, backupCount=1)
+	logHandler.setLevel(logging.INFO)
+	app.logger.setLevel(logging.INFO)
+	app.logger.addHandler(logHandler)
+	app.run()
