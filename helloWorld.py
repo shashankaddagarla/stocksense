@@ -1,4 +1,8 @@
 # set GOOGLE_APPLICATION_CREDENTIALS="D:/Coding/Whatever-21592b267981.json"
+#API_KEY='AIzaSyCszc-XwrISKJnkmQUnS05KGFfcBhi9Zzw'
+
+from oauth2client.client import GoogleCredentials
+credentials = GoogleCredentials.get_application_default()
 
 import logging
 from logging.handlers import RotatingFileHandler
@@ -12,7 +16,7 @@ app = Flask(__name__)
 @app.route('/')
 def hello_world():
     # Instantiates a client
-	client = language.LanguageServiceClient()
+	client = language.LanguageServiceClient(credentials=credentials)
 
 	# The text to analyze
 	text = u'Hello, world!'
@@ -34,7 +38,7 @@ def helloWorld():
 
 if __name__ == "__main__":
 	logHandler = RotatingFileHandler('info.log', maxBytes=1000, backupCount=1)
-	logHandler.setLevel(logging.INFO)
-	app.logger.setLevel(logging.INFO)
+	logHandler.setLevel(logging.ERROR)
+	app.logger.setLevel(logging.ERROR)
 	app.logger.addHandler(logHandler)
 	app.run()
