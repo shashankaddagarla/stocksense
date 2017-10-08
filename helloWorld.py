@@ -1,5 +1,6 @@
 # set GOOGLE_APPLICATION_CREDENTIALS="D:/Coding/Whatever-21592b267981.json"
-API_KEY='AIzaSyCszc-XwrISKJnkmQUnS05KGFfcBhi9Zzw'
+#API_KEY='AIzaSyCszc-XwrISKJnkmQUnS05KGFfcBhi9Zzw'
+
 
 import logging
 from logging.handlers import RotatingFileHandler
@@ -13,7 +14,7 @@ app = Flask(__name__)
 @app.route('/')
 def hello_world():
     # Instantiates a client
-	client = language.LanguageServiceClient(key=API_KEY)
+	client = language.LanguageServiceClient()
 
 	# The text to analyze
 	text = u'Hello, world!'
