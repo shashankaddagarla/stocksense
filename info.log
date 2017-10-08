@@ -20,10 +20,9 @@ Traceback (most recent call last):
     credentials = _grpc_google_auth.get_default_credentials(scopes)
   File "D:\Python\Scripts\env\lib\site-packages\google\gax\_grpc_google_auth.py", line 62, in get_default_credentials
     credentials, _ = google.auth.default(scopes=scopes)
-  File "D:\Python\Scripts\env\lib\site-packages\google\auth\_default.py", line 281, in default
-    credentials, project_id = checker()
-  File "D:\Python\Scripts\env\lib\site-packages\google\auth\_default.py", line 142, in _get_explicit_environ_credentials
-    os.environ[environment_vars.CREDENTIALS])
-  File "D:\Python\Scripts\env\lib\site-packages\google\auth\_default.py", line 65, in _load_credentials_from_file
-    'File {} was not found.'.format(filename))
-google.auth.exceptions.DefaultCredentialsError: File "D:\Coding\stockSense\Whatever-21592b267981.json" was not found.
+  File "D:\Python\Scripts\env\lib\site-packages\google\auth\_default.py", line 286, in default
+    raise exceptions.DefaultCredentialsError(_HELP_MESSAGE)
+google.auth.exceptions.DefaultCredentialsError: Could not automatically determine credentials. Please set GOOGLE_APPLICATION_CREDENTIALS or
+explicitly create credential and re-run the application. For more
+information, please see
+https://developers.google.com/accounts/docs/application-default-credentials.
